@@ -9,8 +9,8 @@ const fs = require('fs');
 const team = [];
 const idList = [];
 
-const directory = path.resolve(__dirname, 'directory')
-const directoryRoute = path.join(directory, 'workgroup.html');
+const dist = path.resolve(__dirname, 'dist')
+const directoryRoute = path.join(dist, 'workgroup.html');
 
 const generate = require('./src/template');
 
@@ -29,18 +29,19 @@ function start() {
             name: "managerID",
             message: "What is the manager's ID?"
         },
+        
+        {
+            type: "input",
+            name: "managerEmail",
+            message: "What is the manager's email address?"
+        },
         {
             type: "input",
             name: "officeNumber",
             message: "What office is the manager located in?"
-        },
-        {
-            type: "input",
-            name: "managerEmail",
-            message: "What is the manager's meail address?"
         }
     ]).then(answers => {
-        const teamManager = new Manager(answers.managerName, answers.managerID, answers.officeNumber, answers.managerEmail);
+        const teamManager = new Manager(answers.managerName, answers.managerID, answers.managerEmail, answers.officeNumber);
         team.push(teamManager);
         idList.push(answers.managerID);
         generateWorkGroup();
@@ -136,8 +137,8 @@ function start() {
 
     function finishWorkGroup() {
         
-        if (!fs.existsSync(directory)) {
-        fs.mkdirSync(directory)
+        if (!fs.existsSync(dist)) {
+        fs.mkdirSync(dist)
         }
         fs.writeFileSync(directoryRoute, generate(team), "utf-8");
     }

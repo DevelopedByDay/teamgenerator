@@ -1,10 +1,11 @@
 .header {
     background-color: #007bff;
     color: #ffffff;
+    width: 100%;
 }
 
 .workGroup {
-    max-width: 100vh;
+    max-width: 100%;
     margin: 5vh auto;
     flex-wrap: wrap;
 }
@@ -20,6 +21,7 @@
     flex-direction: column;
     justify-content: space-between;
     border: none;
+    list-style: none;
 }
 
 .cardMain {
@@ -27,9 +29,11 @@
     flex-direction: column;
     justify-content: center;
     background-color: #f8f6f6b0;
+    list-style: none;
 }
 
 .listItem {
     color: #000000;
     text-decoration: none;
+    list-style: none;
 }

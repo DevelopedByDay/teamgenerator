@@ -1,53 +1,53 @@
 const createWorkGroup = team => {
 
-    const createWorkManager = manager => {
+    const createWorkManager = teamManager => {
         return `
         <div class="card teamCard">
         <div class="card-header">
-            <h3 class="card-title">${manager.getName()}</h3>
-            <h4 class="card-title">${manager.getRole()}</h4>
+            <h3 class="card-title">${teamManager.name}</h3>
+            <h4 class="card-title">${teamManager.getRole()}</h4>
         </div>
         <div class="cardMain">
             <ul class="list-group">
-                <li class="listItem">ID: ${manager.getId()}</li>
-                <li class="listItem">Email: <a href="mailto:${manager.getEmail()}}">${manager.getEmail()}</a></li>
-                <li class="listItem">Office number: ${manager.getOfficeNumber()}}</li>
+                <li class="listItem">ID: ${teamManager.id}</li>
+                <li class="listItem">Email: <a href="mailto:${teamManager.email}}">${teamManager.email}</a></li>
+                <li class="listItem">Office number: ${teamManager.officeNumber}</li>
             </ul>
         </div>
     </div>
         `;
     };
 
-    const createWorkEngineer = engineer => {
+    const createWorkEngineer = teamEngineer => {
         return `
         <div class="card teamCard">
     <div class="card-header">
-        <h3 class="card-title">${engineer.getName()}</h3>
-        <h4 class="card-title">${engineer.getRole()}</h4>
+        <h3 class="card-title">${teamEngineer.name}</h3>
+        <h4 class="card-title">${teamEngineer.getRole()}</h4>
     </div>
     <div class="cardMain">
         <ul class="list-group">
-            <li class="listItem">ID: ${engineer.getId()}</li>
-            <li class="listItem">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="listItem">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></li>
+            <li class="listItem">ID: ${teamEngineer.id}</li>
+            <li class="listItem">Email: <a href="mailto:${teamEngineer.email}">${teamEngineer.email}</a></li>
+            <li class="listItem">GitHub: <a href="https://github.com/${teamEngineer.github}" target="_blank">${teamEngineer.github}</a></li>
         </ul>
     </div>
 </div>
         `;
     };
 
-    const createWorkIntern = intern => {
+    const createWorkIntern = teamIntern => {
         return `
         <div class="card teamCard">
     <div class="card-header">
-        <h3 class="card-title">${intern.getName()}</h3>
-        <h4 class="card-title">${intern.getRole()}</h4>
+        <h3 class="card-title">${teamIntern.name}</h3>
+        <h4 class="card-title">${teamIntern.getRole()}</h4>
     </div>
     <div class="cardMain">
         <ul class="list-group">
-            <li class="listItem">ID: {{ id }}</li>
-            <li class="listItem">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
-            <li class="listItem">School: ${intern.getSchool()}</li>
+            <li class="listItem">ID: ${teamIntern.id}</li>
+            <li class="listItem">Email: <a href="mailto:${teamIntern.email}">${teamIntern.email}</a></li>
+            <li class="listItem">School: ${teamIntern.school}</li>
         </ul>
     </div>
 </div>
@@ -56,9 +56,9 @@ const createWorkGroup = team => {
 
     const html = [];
 
-    html.push(team.filter(employee => employee.getRole() === "Manager").map(manager => createWorkManager(manager)));
-    html.push(team.filter(employee => employee.getRole() === "Engineer").map(engineer => createWorkEngineer(engineer)).join(""));
-    html.push(team.filter(employee => employee.getRole() === "Intern").map(intern => createWorkIntern(intern)).join(""));
+    html.push(team.filter(employee => employee.getRole() === "Manager").map(teamManager => createWorkManager(teamManager)));
+    html.push(team.filter(employee => employee.getRole() === "Engineer").map(teamEngineer => createWorkEngineer(teamEngineer)).join(""));
+    html.push(team.filter(employee => employee.getRole() === "Intern").map(teamIntern => createWorkIntern(teamIntern)).join(""));
 
     return html.join("");
 }
