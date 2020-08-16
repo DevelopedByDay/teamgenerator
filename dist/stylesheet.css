@@ -1,0 +1,35 @@
+.header {
+    background-color: #007bff;
+    color: #ffffff;
+}
+
+.workGroup {
+    max-width: 100vh;
+    margin: 5vh auto;
+    flex-wrap: wrap;
+}
+
+.teamCard {
+    margin: 1vh;
+    max-width: 25vh;
+    width: 85%;
+    min-height: 35vh;
+    background-color: #ff0000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+}
+
+.cardMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #f8f6f6b0;
+}
+
+.listItem {
+    color: #000000;
+    text-decoration: none;
+}
