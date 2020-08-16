@@ -1,4 +1,4 @@
-const createWorkGroup = data => {
+const createWorkGroup = team => {
 
     const createWorkManager = manager => {
         return `
@@ -29,7 +29,7 @@ const createWorkGroup = data => {
         <ul class="list-group">
             <li class="listItem">ID: ${engineer.getId()}</li>
             <li class="listItem">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-            <li class="listItem">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank" rel="noopener noreferrer">${engineer.getGithub()}</a></li>
+            <li class="listItem">GitHub: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></li>
         </ul>
     </div>
 </div>
@@ -63,7 +63,7 @@ const createWorkGroup = data => {
     return html.join("");
 }
 
-module.exports = data => {
+module.exports = team => {
     return `
     <!DOCTYPE html>
 <html lang="en">
@@ -88,7 +88,7 @@ module.exports = data => {
     <div class="container">
         <div class="row">
             <div class="workGroup col-12 d-flex justify-content-center">
-                ${createWorkGroup(data)}
+                ${createWorkGroup(team)}
             </div>
         </div>
     </div>
